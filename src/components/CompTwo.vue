@@ -1,9 +1,29 @@
 <template>
-    <div class="compTwoDiv">
-        <p>CompTwo.vue (global)</p>
+    <div>
+        <h2>Component Two</h2>
+        <input type="text" v-model="msg" placeholder="Write something... ">
+        <p>Your message:</p>
+        <p><strong>{{ this.msg }}</strong></p>
     </div>
 </template>
 
-<script></script>
+<script>
+    export default {
+        name: 'CompTwo',
+        data() {
+            return {
+                msg: ''
+            }
+        }
+    }
+</script>
 
-<style></style>
+<style scoped>
+    div {
+        background-color: lightpink ;
+    }
+    strong {
+        background-color: yellow;
+        padding: 5px;
+    }
+</style>

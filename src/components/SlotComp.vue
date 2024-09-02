@@ -1,14 +1,23 @@
 <template>
-    <div>
-        <p>SlotComp.vue</p>
-        <slot></slot>
-    </div>
+    <slot 
+        name="leftSlot"
+        :text="leftText">
+    </slot>
+    <slot
+        name="rightSlot"
+        :text="rightText">
+    </slot>
 </template>
 
-<script></script>
-
-<style scoped>
-    div {
-        background-color: lightgreen;
+<script>
+    export default {
+        data() {
+            return {
+                leftText: 'This text belongs to the LEFT slot.',
+                rightText: 'This text belongs to the RIGHT slot.'
+            }
+        }
     }
-</style>
+</script>
+
+<style></style>

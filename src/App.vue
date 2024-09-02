@@ -1,21 +1,53 @@
 <template>
-  <div>
-    <h3>Slots in Vue</h3>
-    <p>We send 'Hello World!' as content to the slot tag inside the SlotComp.vue component from App.vue.</p>
-    <slot-comp>Hello World!</slot-comp>
-  </div> 
+  <h1>Dynamic Components</h1>
+  <p>With &lt;KeepAlive include="CompOne,CompThree"&gt; only the "CompOne" and "CompThree" components will remember the user input.</p>
+  <button @click="compNbr++">Next component</button>
+  <KeepAlive include="CompOne,CompThree">
+    <component :is="activeComp"></component>
+  </KeepAlive>
 </template>
 
-<script></script>
+<script>
+  export default {
+    data() {
+      return {
+        compNbr: 1
+      }
+    },
+    watch: {
+      compNbr(val) {
+        if (val>3) {
+          this.compNbr = 1;
+        }
+      }
+    },
+    computed: {
+      activeComp() {
+        if (this.compNbr === 1) {
+          return 'comp-one'
+        }
+        else if (this.compNbr === 2) {
+          return 'comp-two'
+        }
+        else {
+          return 'comp-three'
+        }
+      }
+    }
+  }
+</script>
 
 <style>
-  p {
-    width: 200px;
-  }
-  #app div {
-    border: dashed black 1px;
+  #app {
+    width: 350px;
     margin: 10px;
+  }
+  #app > div {
+    border: solid black 2px;
     padding: 10px;
-    display: inline-block;
+    margin-top: 10px;
+  }
+  h2 {
+    text-decoration: underline;
   }
 </style>
