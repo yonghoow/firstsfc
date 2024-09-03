@@ -1,40 +1,16 @@
 <template>
-    <div>
-        <img :src="imgSrc">
-        <h2>Component One</h2>
-        <p>Choose food.</p>
-        <label>
-            <input type="radio" name="rbgFood" v-model="imgSrc" :value="'img_apple.svg'" />
-            Apple
-        </label>
-        <label>
-            <input type="radio" name="rbgFood" v-model="imgSrc" :value="'img_cake.svg'" />
-            Cake
-        </label>
-    </div>
+    <h2>Component</h2>
+    <p>Right after this component is added to the DOM, the mounted() function is called and we can add code to that mounted function. In this example, an alert popup box appears after this component is mounted.</p>
+    <P><strong>Note:</strong> The reason that the alert is visible before the component is visible is because the browser gets to render the component to the screen.</P>
 </template>
 
 <script>
     export default {
-        name: 'CompOne',
-        data() {
-            return {
-                imgSrc: 'img_question.svg'
-            }
+        mounted() {
+            alert('The component is mounted.')
         }
     }
 </script>
 
-<style scoped>
-    div {
-        background-color: lightgreen;
-    }
-    img {
-        float: right;
-        height: 100px;
-        margin-top: 20px;
-    }
-    label:hover {
-        cursor: pointer;
-    }
+<style>
 </style>

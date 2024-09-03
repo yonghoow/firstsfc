@@ -1,53 +1,28 @@
 <template>
-  <h1>Dynamic Components</h1>
-  <p>With &lt;KeepAlive include="CompOne,CompThree"&gt; only the "CompOne" and "CompThree" components will remember the user input.</p>
-  <button @click="compNbr++">Next component</button>
-  <KeepAlive include="CompOne,CompThree">
-    <component :is="activeComp"></component>
-  </KeepAlive>
+  <h1>The 'mounted' Lifecycle Hook</h1>
+  <button @click="this.activeComp = !this.activeComp">Create Component</button>
+  <div>
+    <comp-one v-if="activeComp"></comp-one>
+  </div>
 </template>
 
 <script>
   export default {
     data() {
       return {
-        compNbr: 1
-      }
-    },
-    watch: {
-      compNbr(val) {
-        if (val>3) {
-          this.compNbr = 1;
-        }
-      }
-    },
-    computed: {
-      activeComp() {
-        if (this.compNbr === 1) {
-          return 'comp-one'
-        }
-        else if (this.compNbr === 2) {
-          return 'comp-two'
-        }
-        else {
-          return 'comp-three'
-        }
+        activeComp: false
       }
     }
   }
 </script>
 
-<style>
-  #app {
-    width: 350px;
+<style scoped>
+  div {
+    border: dashed black 1px;
+    border-radius: 10px;
+    padding: 20px;
     margin: 10px;
-  }
-  #app > div {
-    border: solid black 2px;
-    padding: 10px;
-    margin-top: 10px;
-  }
-  h2 {
-    text-decoration: underline;
+    width: 400px;
+    background-color: lightgreen;
   }
 </style>

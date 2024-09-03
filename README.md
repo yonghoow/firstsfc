@@ -1,6 +1,6 @@
 # firstsfc
 
-We stop at Vue Dynamic Components.
+We stop at Vue Lifecycle Hooks.
  
 This template should help get you started developing with Vue 3 in Vite.
 
