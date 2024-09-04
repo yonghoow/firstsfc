@@ -1,6 +1,6 @@
 # firstsfc
 
-We stop at Vue Lifecycle Hooks.
+We stop at Vue Provide/Inject.
  
 This template should help get you started developing with Vue 3 in Vite.
 

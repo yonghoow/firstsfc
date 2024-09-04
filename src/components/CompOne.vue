@@ -1,16 +1,38 @@
 <template>
     <h2>Component</h2>
-    <p>Right after this component is added to the DOM, the mounted() function is called and we can add code to that mounted function. In this example, an alert popup box appears after this component is mounted.</p>
-    <P><strong>Note:</strong> The reason that the alert is visible before the component is visible is because the browser gets to render the component to the screen.</P>
-</template>
-
-<script>
-    export default {
-        mounted() {
-            alert('The component is mounted.')
-        }
+    <p>Below is a log with every time the 'activated', 'deactivated', 'mounted' or 'unmounted' hooks run.</p>
+    <ol ref="olEl"></ol>
+    <p>You can also see when these hooks run in the console.</p>
+  </template>
+    
+  <script>
+  export default {
+    mounted() {
+      this.logHook("mounted");
+    },
+    unmounted() {
+      this.logHook("unmounted");
+    },
+    activated() {
+      this.logHook("activated");
+    },
+    deactivated() {
+      this.logHook("deactivated");
+    },
+    methods: {
+      logHook(hookName) {
+        console.log(hookName);
+        const liEl = document.createElement("li");
+        liEl.innerHTML = hookName;
+        this.$refs.olEl.appendChild(liEl);
+      }
     }
-</script>
-
-<style>
-</style>
+  }
+  </script>
+  
+  <style>
+    li {
+      background-color: lightcoral;
+      width: 5em;
+    }
+  </style>            
