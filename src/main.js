@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 
 import App from './App.vue'
-import FoodAbout from './components/FoodAbout.vue'
-import FoodKinds from './components/FoodKinds.vue'
+import FoodItems from './components/FoodItems.vue'
+import AnimalCollection from './components/AnimalCollection.vue'
 
 const app = createApp(App)
-app.component('food-about', FoodAbout)
-app.component('food-kinds', FoodKinds)
+app.component('food-items', FoodItems);
+app.component('animal-collection', AnimalCollection);
 app.mount('#app')

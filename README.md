@@ -1,6 +1,6 @@
 # firstsfc
 
-We stop at Vue Provide/Inject.
+We stop at Vue Routing.
  
 This template should help get you started developing with Vue 3 in Vite.
 
