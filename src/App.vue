@@ -1,31 +1,43 @@
 <template>
-  <p>Choose what part of this page you want to see:</p>
-  <button @click="activeComp = 'animal-collection'">Animals</button>
-  <button @click="activeComp = 'food-items'">Food</button> <br>
-  <div>
-    <component :is="activeComp"></component>
-  </div>
+  <h3>The &lt;TransitionGroup&gt; Component</h3>
+  <p>New products are given animations given the &lt;TransiitonGroup&gt; component</p>
+  <input type="text" v-model="inpName">
+  <button @click="addE1">Add</button>
+  <TransitionGroup tag="ol">
+    <li v-for="x in products" :key="x">
+      {{ x }}
+    </li>
+  </TransitionGroup>
 </template>
-  
+
 <script>
-export default {
-  data() {
+  export default {
+    data() {
       return {
-          activeComp: ''
+        products: ['Apple', 'Pizza', 'Rice'],
+        inpName: ''
       }
+    },
+    methods: {
+      addE1() {
+        const e1 = this.inpName;
+        this.products.push(e1);
+        this.inpName = null;
+      }
+    }
   }
-}
 </script>
 
-<style scoped>
-  button {
-    padding: 5px;
-    margin: 10px;
+<style>
+  .v-enter-from {
+    opacity: 0;
+    rotate: 180deg;
   }
-  div {
-    border: dashed black 1px;
-    padding: 20px;
-    margin: 10px;
-    display: inline-block;
+  .v-enter-to {
+    opacity: 1;
+    rotate: 0deg;
+  }
+  .v-enter-active {
+    transition: all 0.7s;
   }
 </style>
