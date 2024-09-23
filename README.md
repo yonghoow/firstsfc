@@ -1,7 +1,7 @@
 # firstsfc
 
-We stop at Vue Animations with v-for.
-Section: The <TransitionGroup> Component
+We stop at Vue Composition API.
+Section: 
  
 This template should help get you started developing with Vue 3 in Vite.
 
