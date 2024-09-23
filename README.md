@@ -1,7 +1,8 @@
 # firstsfc
 
-We stop at Vue Composition API.
-Section: 
+We stop at Vue Reference.
+Section: Vue Built-in Attributes
+Subsection: Vue 'ref' Attribute
  
 This template should help get you started developing with Vue 3 in Vite.
 

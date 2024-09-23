@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The 'ref' Attribute</title>
+  <style>
+    #app > p {
+      border: dashed black 1px;
+      width: 130px;
+      padding: 20px;
+      font-weight: bold;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+
+<h1>The 'ref' Attribute</h1>
+
+<p>Click the button to change the text using the 'ref' attribute and the '$refs' object.</p>
+
+<div id="app">
+  <p ref="pEl">Initial text.</p>
+  <button v-on:click="changeText">Change text</button>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script type="module">
+  const app = Vue.createApp({
+    methods: {
+      changeText(){
+        this.$refs.pEl.innerHTML = "Hello!";
+      }
+    }
+  })
+  app.mount('#app')
+</script>
+
+</body>
+</html>
