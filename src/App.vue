@@ -1,33 +1,42 @@
 <template>
-  <h1>Example</h1>
-  <p>Click the button to reveal the 3rd list element stored as an array element in the $refs object.</p>
-  <button @click="getValue">Get the 3rd list element</button><br>
-  <ul>
-    <li v-for="x in liTexts" ref="liEl">{{ x }}</li>
-  </ul>
-  <pre>{{ thirdEl }}</pre>
+  <h1>Dynamic Components</h1>
+  <p>With the &lt;KeepAlive max="2"&gt; only the last two visited component will remember the user inputs.</p>
+  <label><input type="radio" name="rbgComp" v-model="compName" :value="'comp-one'"> One</label>
+  <label><input type="radio" name="rbgComp" v-model="compName" :value="'comp-two'"> Two</label>
+  <label><input type="radio" name="rbgComp" v-model="compName" :value="'comp-three'"> Three</label>
+  <keep-alive :max="2">
+    <component :is="compName"></component>
+  </keep-alive>
 </template>
 
 <script>
   export default {
     data() {
       return {
-        thirdEl: ' ',
-        liTexts: ['Apple', 'Banana', 'Kiwi', 'Tomato', 'Lichi']
-      }
-    },
-    methods: {
-      getValue() {
-        this.thirdEl = this.$refs.liEl[2].innerHTML;
-        console.log("this.$refs.liEl = ", this.$refs.liEl);
+        compName: 'comp-one'
       }
     }
-  };
+  }
 </script>
 
 <style>
-  pre {
-    background-color: lightgreen;
+  #app {
+    width: 350px;
+    margin: 10px;
+  }
+  #app > div {
+    margin-top: 10px;
+    padding: 10px;
+    border: solid black 2px;
+  }
+  h2 {
+    text-decoration: underline;
+  }
+  label {
     display: inline-block;
+    padding: 5px;
+  }
+  label:hover {
+    cursor: pointer;
   }
 </style>

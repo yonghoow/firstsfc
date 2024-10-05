@@ -1,8 +1,8 @@
 # firstsfc
 
 We stop at Vue Reference.
-Section: Vue Built-in Attributes
-Subsection: Vue 'ref' Attribute
+Section: Vue Built-in Components
+Subsection: <Teleport>
  
 This template should help get you started developing with Vue 3 in Vite.
 
